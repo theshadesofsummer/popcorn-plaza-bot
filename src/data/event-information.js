@@ -1,4 +1,5 @@
 export const eventInformation = {
-  running: false,
+  isRunning: false,
   game: undefined,
+  role: undefined
 }

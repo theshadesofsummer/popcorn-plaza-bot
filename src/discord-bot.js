@@ -5,10 +5,14 @@ import {REST} from 'discord.js';
 import { Routes } from 'discord-api-types/v9';
 import { Client, Collection, IntentsBitField } from 'discord.js';
 import {startEvent} from "./commands/start-event.js";
+import {addToEventNotification} from "./commands/add-to-notification.js";
+import {stopEvent} from "./commands/stop-event.js";
+import {removeFromEventNotification} from "./commands/remove-from-notification.js";
 
 const client = new Client({ intents: [IntentsBitField.Flags.Guilds, IntentsBitField.Flags.GuildMessages, IntentsBitField.Flags.GuildMessageReactions] });
 const commands = [
-	startEvent
+	startEvent,
+	stopEvent
 ]
 
 export async function setupDiscordBot() {
@@ -35,7 +39,13 @@ export async function setupDiscordBot() {
 		}
 
 		if (interaction.isButton()) {
-			console.log(interaction)
+			if (interaction.customId === 'add-to-notification') {
+				await addToEventNotification(interaction)
+			}
+
+			if (interaction.customId === 'remove-from-notification') {
+				await removeFromEventNotification(interaction)
+			}
 		}
 	});
 
