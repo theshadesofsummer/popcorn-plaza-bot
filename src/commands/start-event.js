@@ -58,7 +58,7 @@ export const startEvent = {
       .addComponents(addNotification, removeNotification);
 
     await interaction.reply({
-      content: `### Attention @everyone! \n\nA new Popcorn Plaza event is coming right up! \nWe will be playing **${gameName}** today, if you want top be pinged for Lobby Codes and Open Lobbies **click the 'Get Notification' button** below to get the <@&${eventInformation.role.id}> role!`,
+      content: `### Attention everyone! \n\nA new Popcorn Plaza event is coming right up! \nWe will be playing **${gameName}** today, if you want top be pinged for Lobby Codes and Open Lobbies **click the 'Get Notification' button** below to get the <@&${eventInformation.role.id}> role!`,
       components: [row]
     });
   },
